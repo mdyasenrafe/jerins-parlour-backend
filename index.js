@@ -30,6 +30,7 @@ async function run() {
     //   await client.close();
   }
 }
+// run function call
 run().catch(console.dir);
 
 console.log(uri);
