@@ -20,8 +20,16 @@ async function run() {
     await client.connect();
     const database = client.db("Jerin_Parlour");
     const servicesCollection = database.collection("services");
+    const reviewsCollection = database.collection("reviews");
+    // services api
     app.get("/services", async (req, res) => {
       const cursors = servicesCollection.find();
+      const result = await cursors.toArray();
+      res.send(result);
+    });
+    // reviews api
+    app.get("/reviews", async (req, res) => {
+      const cursors = reviewsCollection.find();
       const result = await cursors.toArray();
       res.send(result);
     });
